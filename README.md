@@ -26,18 +26,30 @@
 
 ## Project Details
 This project is about Telegram Bot that can be served as an admin bot in a Telegram group chat with serveral commands:
-<ul>
-  <li>1. start: start instructions</li>
-  <li>2. addgithub: only for admin to add github's username of the members</li>
-</ul>
-
+1. [/start]() : start the instructions
+2. [/cmd]() : show the commands
+3. [/add]() : add telegram usernames to json file
+4. [/addgithub]() : add github usernames to json file
 
 ## Installation Guide
-#### Step 1: Before executing the project, runs this command to install the following dependencies in the project
+#### Step 1: Before executing the project, runs this command to install the following `node_modules` and dependencies in the project
 ```
 npm install
 ```
-#### Step 2: Apply this command to run the project 
+#### Step 2: Create the Telegram Bot Token
+- Click this website and follow the instruction on `Register a Bot account` section
+> [Create and Host a Telegram Bot with Node.js on Code Capsules
+](https://codecapsules.io/docs/tutorials/create-nodejs-telegram-bot/#polling-vs-webhooks)
+#### Step 3: Create `.env file` and add the environmnet variables
+```js
+PORT=             // The port -> The default port is 3000
+BOT_TOKEN=        // The bot token after you create the Telegram bot
+BOT_NAME=         // Your bot name
+BOT_USERNAME=     // Your bot username
+MY_CHAT_ID=       // The chat id
+MY_USERNAME=      // Your Telegram username
+```
+#### Step 4: Apply this command to run the project 
 ```
 npm start
 ```
