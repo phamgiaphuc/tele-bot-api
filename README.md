@@ -8,7 +8,7 @@
 
 ---
 ## Brief Description
-- This is a telegram bot project with serveral commands. 
+- This is a telegram bot project with several commands. 
 - Project link (GitHub): [tele-bot-api](https://github.com/phamgiaphuc/CurriculumVitaeBuilder)
 - Project's author: Pham Gia Phuc - Acus
 - Personal profile: [MyProfile](https://github.com/phamgiaphuc)
