@@ -15,44 +15,55 @@ expressApp.get("/", (req, res) => {
      res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-bot.launch().then(() => {
-     console.log('Bot is running!');
-})
+// start the bot
+bot.start((ctx) => {
+     ctx.reply('Hi there ✋, please type /cmd to see the commands!');
+});
 
-// 1. /start : start the instructions
-bot.command('start', (ctx) => {
+// call the bot
+bot.hears(['bot','hey bot', 'hey there'], (ctx) => ctx.reply('I am here ✋. Please type /cmd to see the commands!'))
+
+// 1. /check : check if the bot is listening
+bot.command('check', (ctx) => {
      const { username } = ctx.message.from;
      const { id } = ctx.chat ?? {}
      if (id !== Number(process.env.MY_CHAT_ID)) {
-          bot.telegram.sendMessage(id, `Action is not allowed with this id ${id}!`);
+          ctx.reply(`Action is not allowed with this id ${id}!`);
           return;
      }
      if (username !== process.env.MY_USERNAME) {
-          bot.telegram.sendMessage(id, `Action is not allowed with this username ${username}!`);
+          ctx.reply(`Action is not allowed with this username ${username}!`);
           return;
      }
-     bot.telegram.sendMessage(id, 'Bot starts listening for commands!');
+     ctx.reply('Bot is listening for commands!');
 
 });
 // 2. /cmd : show the commands
-bot.command('cmd', (ctx) => {
+bot.command('cmd', async (ctx) => {
      const { username } = ctx.message.from;
      const { id } = ctx.chat ?? {}
      if (id !== Number(process.env.MY_CHAT_ID)) {
-          bot.telegram.sendMessage(id, `Action is not allowed with this id ${id}!`);
+          ctx.reply(`Action is not allowed with this id ${id}!`);
           return;
      }
      if (username !== process.env.MY_USERNAME) {
-          bot.telegram.sendMessage(id, `Action is not allowed with this username ${username}!`);
+          ctx.reply(`Action is not allowed with this username ${username}!`);
           return;
      }
-     bot.telegram.sendMessage(id, `Here is all the bot commands:
-     1. /start : start the instructions
-     2. /cmd : show the commands
-     3. /add : add telegram usernames to json file
-     4. /addgithub : add github usernames to json file
-     `)
-     bot.telegram.sendPhoto(id, 'https://www.freepik.com/premium-vector/flat-chat-bot-marketing-design-chat-messenger-icon-support-service-icon-chat-bot-flat-style-online-consultation-support-service-bot_17408508.htm#query=bot%20logo&position=18&from_view=keyword&track=ais');
+     ctx.replyWithPhoto('https://www.freepik.com/premium-vector/flat-chat-bot-marketing-design-chat-messenger-icon-support-service-icon-chat-bot-flat-style-online-consultation-support-service-bot_17408508.htm#query=bot%20logo&position=18&from_view=keyword&track=ais', 
+     { caption: 
+     `You can control me by sending these commands.
+
+Bot commands:
+1. /start : 'Hi there ✋, please type /cmd to see the commands!'
+2. /check : check if the bot is listening
+3. /cmd : show the commands
+4. /add : add telegram usernames to json file
+5. /addgithub : add github usernames to json file
+6. /allUsers : print out all Telegram usernames
+7. /allGitUsers : print out all GitHub usernames
+          
+Bot messages: 'bot', 'hey there' and 'hey bot'`});
 })
 
 // 3. /add : add telegram usernames to json file
@@ -60,11 +71,11 @@ bot.command('add', async (ctx) => {
      const { username } = ctx.message.from;
      const { id } = ctx.chat ?? {}
      if (id !== Number(process.env.MY_CHAT_ID)) {
-          bot.telegram.sendMessage(id, `Action is not allowed with this id ${id}!`);
+          ctx.reply(`Action is not allowed with this id ${id}!`);
           return;
      }
      if (username !== process.env.MY_USERNAME) {
-          bot.telegram.sendMessage(id, `Action is not allowed with this username ${username}!`);
+          ctx.reply(`Action is not allowed with this username ${username}!`);
           return;
      }
      let userMess = ctx.message.text
@@ -97,11 +108,11 @@ bot.command('addgithub', async (ctx) => {
      const { username } = ctx.message.from;
      const { id } = ctx.chat ?? {}
      if (id !== Number(process.env.MY_CHAT_ID)) {
-          bot.telegram.sendMessage(id, `Action is not allowed with this id ${id}!`);
+          ctx.reply(`Action is not allowed with this id ${id}!`);
           return;
      }
      if (username !== process.env.MY_USERNAME) {
-          bot.telegram.sendMessage(id, `Action is not allowed with this username ${username}!`);
+          ctx.reply(`Action is not allowed with this username ${username}!`);
           return;
      }
      let userMess = ctx.message.text
@@ -128,6 +139,42 @@ bot.command('addgithub', async (ctx) => {
           return;
      }
 });
+
+bot.command('allUsers', async (ctx) => {
+     const { username } = ctx.message.from;
+     const { id } = ctx.chat ?? {}
+     if (id !== Number(process.env.MY_CHAT_ID)) {
+          ctx.reply(`Action is not allowed with this id ${id}!`);
+          return;
+     }
+     if (username !== process.env.MY_USERNAME) {
+          ctx.reply(`Action is not allowed with this username ${username}!`);
+          return;
+     }
+     const data = await fs.promises.readFile('users.json', 'utf8');
+     usersData = JSON.parse(data);
+     const users = usersData.users.join(", ")
+     ctx.reply(usersData.users.length > 0 ? `All users are updated: ${users}` : `No users are updated!`);
+});
+
+bot.command('allGitUsers', async (ctx) => {
+     const { username } = ctx.message.from;
+     const { id } = ctx.chat ?? {}
+     if (id !== Number(process.env.MY_CHAT_ID)) {
+          ctx.reply(`Action is not allowed with this id ${id}!`);
+          return;
+     }
+     if (username !== process.env.MY_USERNAME) {
+          ctx.reply(`Action is not allowed with this username ${username}!`);
+          return;
+     }
+     const data = await fs.promises.readFile('users.json', 'utf8');
+     usersData = JSON.parse(data);
+     const users = usersData.githubUsers.join(", ")
+     ctx.reply(usersData.githubUsers.length > 0 ? `All GitHub usernames are updated: ${users}` : `No GitHub usernames are updated!`);
+});
+
+bot.launch();
 
 expressApp.listen(port, () => {
      console.log(`Server is running on ${port}!`);

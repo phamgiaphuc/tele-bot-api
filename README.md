@@ -26,10 +26,21 @@
 
 ## Project Details
 This project is about Telegram Bot that can be served as an admin bot in a Telegram group chat with serveral commands:
-1. [/start]() : start the instructions
-2. [/cmd]() : show the commands
-3. [/add]() : add telegram usernames to json file
-4. [/addgithub]() : add github usernames to json file
+
+**Bot commands:**
+1. [/start]() : 'Hi there ✋, please type /cmd to see the commands!'
+2. [/check]() : check if the bot is listening
+3. [/cmd]() : show the commands
+4. [/add]() : add telegram usernames to json file
+5. [/addgithub]() : add github usernames to json file
+6. [/allUsers]() : print out all Telegram usernames
+7. [/allGitUsers]() : print out all GitHub usernames
+
+**Bot messages:** 'bot', 'hey there' and 'hey bot'`
+
+<p align="center">
+  <img src="./images/1.png"
+</p>
 
 ## Installation Guide
 #### Step 1: Before executing the project, runs this command to install the following `node_modules` and dependencies in the project
