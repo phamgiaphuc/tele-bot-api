@@ -17,10 +17,11 @@
 1. [NodeJS](https://nodejs.org/en): JavaScript runtime environment
 2. [Telegraf](https://www.npmjs.com/package/telegraf): Modern Telegram Bot API framework for Node.js
 3. [Docker](https://www.docker.com/): To dockerize and run on Docker platform
+4. [MongoDB](mongodb.com): Server database
 
 <p>
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=nodejs,js,docker"/>
+    <img src="https://skillicons.dev/icons?i=nodejs,js,docker,mongodb"/>
   </a>
 </p>
 
@@ -59,9 +60,9 @@ BOT_NAME=           // Your bot name
 BOT_USERNAME=       // Your bot username
 MY_CHAT_ID=         // The chat id
 MY_USERNAME=        // Your Telegram username
-MONGODB_USERNAME=   // Mongodb username
-MONGODB_PASSWORD=   // Mongodb password
-MONGODB_URL=        // Mongodb url connection
+MONGODB_USERNAME=   // MongoDB username
+MONGODB_PASSWORD=   // MongoDB password
+MONGODB_URL=        // MongoDB url connection
 ```
 #### Step 4: Apply this command to run the project 
 ```
