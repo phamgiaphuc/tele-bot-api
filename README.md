@@ -53,12 +53,15 @@ npm install
 ](https://codecapsules.io/docs/tutorials/create-nodejs-telegram-bot/#polling-vs-webhooks)
 #### Step 3: Create `.env file` and add the environmnet variables
 ```js
-PORT=             // The port -> The default port is 3000
-BOT_TOKEN=        // The bot token after you create the Telegram bot
-BOT_NAME=         // Your bot name
-BOT_USERNAME=     // Your bot username
-MY_CHAT_ID=       // The chat id
-MY_USERNAME=      // Your Telegram username
+PORT=               // The port -> The default port is 3000
+BOT_TOKEN=          // The bot token after you create the Telegram bot
+BOT_NAME=           // Your bot name
+BOT_USERNAME=       // Your bot username
+MY_CHAT_ID=         // The chat id
+MY_USERNAME=        // Your Telegram username
+MONGODB_USERNAME=   // Mongodb username
+MONGODB_PASSWORD=   // Mongodb password
+MONGODB_URL=        // Mongodb url connection
 ```
 #### Step 4: Apply this command to run the project 
 ```
