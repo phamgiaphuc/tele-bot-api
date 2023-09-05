@@ -6,5 +6,6 @@ const addTele = require('./commands/addTele');
 const addGitHub = require('./commands/addGitHub');
 const allTeleUsers = require('./commands/allTeleUsers');
 const allGitUsers = require('./commands/allGitUsers');
+const all = require('./commands/all')
 
-module.exports = { start, check, cmd, addTele, addGitHub, allTeleUsers, allGitUsers };
+module.exports = { start, check, cmd, addTele, addGitHub, allTeleUsers, allGitUsers, all };

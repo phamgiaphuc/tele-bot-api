@@ -16,7 +16,11 @@ const allTeleUsersCommand = (bot, PATH) => {
           const data = await fs.promises.readFile(PATH, 'utf8');
           usersData = JSON.parse(data);
           const users = usersData.telegramUsers.join(", ")
-          ctx.reply(usersData.telegramUsers.length > 0 ? `All users are updated: ${users}` : `No users are updated!`);
+          if (!usersData.githubUsers.length) {
+               ctx.reply('No Telegram usernames are updated!');
+               return;
+          }
+          ctx.reply(`All Telegram usernames are updated: ${users}`); 
      });
      return;
 }

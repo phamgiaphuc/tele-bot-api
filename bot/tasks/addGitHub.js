@@ -5,8 +5,9 @@ const addGitHubToDB = async (usernames) => {
                await usersModel.create({
                     username: name,
                     user_type: 'github'
-               })
+               });
           }
+          console.log('Add GitHub usernames to MongoDB successful');
      } catch (error) {
           console.log(error)
      };
