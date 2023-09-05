@@ -1,9 +1,10 @@
+// bot
 const start = require('./commands/start');
 const check = require('./commands/check');
 const cmd = require('./commands/cmd');
-const add = require('./commands/add');
+const addTele = require('./commands/addTele');
 const addGitHub = require('./commands/addGitHub');
-const allUsers = require('./commands/allUsers');
+const allTeleUsers = require('./commands/allTeleUsers');
 const allGitUsers = require('./commands/allGitUsers');
 
-module.exports = { start, check, cmd, add, addGitHub, allUsers, allGitUsers };
+module.exports = { start, check, cmd, addTele, addGitHub, allTeleUsers, allGitUsers };

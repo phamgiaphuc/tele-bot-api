@@ -1,4 +1,5 @@
 const fs = require('fs');
+const addGitHubToDB = require('../tasks/addGitHub')
 
 const addGitHubCommand = (bot, PATH) => {
      // 5. /addgithub : add github usernames to json file
@@ -31,6 +32,7 @@ const addGitHubCommand = (bot, PATH) => {
           try {
                const updatedData = JSON.stringify(usersData, null, 2);
                await fs.promises.writeFile(PATH, updatedData, 'utf8');
+               addGitHubToDB(usernames);
                return;
           } catch (error) {
                console.error('Error writing to the file:', error);

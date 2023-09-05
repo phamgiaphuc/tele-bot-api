@@ -1,21 +1,27 @@
 const express = require('express');
 require('dotenv').config();
-const expressApp = express();
-const path = require('path')
+const app = express();
+const path = require('path');
 const port = process.env.PORT || 3000;
 const theBot = require('./bot/bot');
+const http = require('http');
+const server = http.createServer(app);
+const connectToMongoDB = require('./database/connect');
+const URL = process.env.MONGODB_URL;
 
-expressApp.use(express.static('static'))
-expressApp.use(express.json());
+app.use(express.static('static'))
+app.use(express.json());
 
-expressApp.get("/", (req, res) => {
-     res.sendFile(path.join(__dirname + '/index.html'));
+app.get("/", (req, res) => {
+     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-// Start the bot
-theBot.startTheBot();
+const startServer = () => {
+     theBot.startTheBot();
+     connectToMongoDB(URL);
+     server.listen(port, () => {
+          console.log(`Server is running on ${port}!`);
+     });
+}
 
-expressApp.listen(port, () => {
-     console.log(`Server is running on ${port}!`);
-});
-
+startServer();

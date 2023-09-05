@@ -14,14 +14,17 @@
 - Personal profile: [MyProfile](https://github.com/phamgiaphuc)
 
 ## Languages and Tools in this project:
+1. [JavaScript](https://en.wikipedia.org/wiki/JavaScript): Programming language
 1. [NodeJS](https://nodejs.org/en): JavaScript runtime environment
-2. [Telegraf](https://www.npmjs.com/package/telegraf): Modern Telegram Bot API framework for Node.js
-3. [Docker](https://www.docker.com/): To dockerize and run on Docker platform
-4. [MongoDB](mongodb.com): Server database
+2. [ExpressJS](https://expressjs.com/): Web framework
+3. [TelegrafJS](https://www.npmjs.com/package/telegraf): Modern Telegram Bot API framework for Node.js
+4. [Docker](https://www.docker.com/): To dockerize and run on Docker platform
+5. [MongoDB](mongodb.com): Server database
+6. [Postman](https://www.postman.com/product/what-is-postman/): Testing tool
 
 <p>
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=nodejs,js,docker,mongodb"/>
+    <img src="https://skillicons.dev/icons?i=js,nodejs,expressjs,docker,mongodb,postman"/>
   </a>
 </p>
 
@@ -40,7 +43,7 @@ This project is about Telegram Bot that can be served as an admin bot in a Teleg
 **Bot messages:** 'bot', 'hey there' and 'hey bot'`
 
 <p align="center">
-  <img src="./images/1.png"
+  <img src="./images/preview.png"
 </p>
 
 ## Installation Guide

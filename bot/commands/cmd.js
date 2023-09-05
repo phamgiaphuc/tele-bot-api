@@ -15,16 +15,16 @@ const cmdCommand = (bot) => {
           { caption: 
           `You can control me by sending these commands.
 
-     Bot commands:
-     1. /start : 'Hi there ✋, please type /cmd to see the commands!'
-     2. /check : check if the bot is listening
-     3. /cmd : show the commands
-     4. /add : add telegram usernames to json file
-     5. /addGitHub : add github usernames to json file
-     6. /allUsers : print out all Telegram usernames
-     7. /allGitUsers : print out all GitHub usernames
+Bot commands:
+1. /start : 'Hi there ✋, please type /cmd to see the commands!'
+2. /check : check if the bot is listening
+3. /cmd : show the commands
+4. /addTele : add telegram usernames to json file
+5. /addGitHub : add github usernames to json file
+6. /allTeleUsers : print out all Telegram usernames
+7. /allGitUsers : print out all GitHub usernames
                
-     Bot messages: 'bot', 'hey there' and 'hey bot'`});
+Bot messages: 'bot', 'hey there' and 'hey bot'`});
      });
      return;
 }
