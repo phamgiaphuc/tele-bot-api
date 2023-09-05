@@ -8,12 +8,12 @@ const startTheBot = () => {
      command.start(bot);
      command.check(bot);
      command.cmd(bot);
-     command.add(bot, PATH);
+     command.addTele(bot, PATH);
      command.addGitHub(bot, PATH);
-     command.allUsers(bot, PATH);
+     command.allTeleUsers(bot, PATH);
      command.allGitUsers(bot, PATH);
-
      bot.launch();
+     return;
 }
 
 module.exports = { startTheBot };

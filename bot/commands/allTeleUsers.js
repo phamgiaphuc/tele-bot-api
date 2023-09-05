@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-const allUsersCommand = (bot, PATH) => {
+const allTeleUsersCommand = (bot, PATH) => {
      // 6. /allUsers : print out all Telegram usernames
-     bot.command('allUsers', async (ctx) => {
+     bot.command('allTeleUsers', async (ctx) => {
           const { username } = ctx.message.from;
           const { id } = ctx.chat ?? {}
           if (id !== Number(process.env.MY_CHAT_ID)) {
@@ -15,10 +15,10 @@ const allUsersCommand = (bot, PATH) => {
           }
           const data = await fs.promises.readFile(PATH, 'utf8');
           usersData = JSON.parse(data);
-          const users = usersData.users.join(", ")
-          ctx.reply(usersData.users.length > 0 ? `All users are updated: ${users}` : `No users are updated!`);
+          const users = usersData.telegramUsers.join(", ")
+          ctx.reply(usersData.telegramUsers.length > 0 ? `All users are updated: ${users}` : `No users are updated!`);
      });
      return;
 }
 
-module.exports = allUsersCommand;
+module.exports = allTeleUsersCommand;

@@ -1,8 +1,9 @@
 const fs = require('fs');
+const addTeleToDB = require('../tasks/addTele')
 
-const addCommand = (bot, PATH) => {
+const addTeleCommand = (bot, PATH) => {
      // 4. /add : add telegram usernames to json file
-     bot.command('add', async (ctx) => {
+     bot.command('addTele', async (ctx) => {
           const { username } = ctx.message.from;
           const { id } = ctx.chat ?? {}
           if (id !== Number(process.env.MY_CHAT_ID)) {
@@ -14,7 +15,7 @@ const addCommand = (bot, PATH) => {
                return;
           }
           let userMess = ctx.message.text
-          let usersData = { users: [] };
+          let usersData = { telegramUsers: [] };
           try {
                const data = await fs.promises.readFile(PATH, 'utf8');
                usersData = JSON.parse(data);
@@ -26,11 +27,12 @@ const addCommand = (bot, PATH) => {
                return;
           }
           const usernames = userMess.split(' ').slice(1);
-          usersData.users.push(...usernames);
+          usersData.telegramUsers.push(...usernames);
           userMess = '';
           try {
                const updatedData = JSON.stringify(usersData, null, 2);
                await fs.promises.writeFile(PATH, updatedData, 'utf8');
+               addTeleToDB(usernames);
                return;
           } catch (error) {
                console.error('Error writing to the file:', error);
@@ -40,4 +42,4 @@ const addCommand = (bot, PATH) => {
      return;
 }
 
-module.exports = addCommand;
+module.exports = addTeleCommand;
