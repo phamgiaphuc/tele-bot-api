@@ -23,6 +23,7 @@ Bot commands:
 5. /addGitHub : add github usernames to json file
 6. /allTeleUsers : print out all Telegram usernames
 7. /allGitUsers : print out all GitHub usernames
+8. /all: mention all people in the group chat
                
 Bot messages: 'bot', 'hey there' and 'hey bot'`});
      });
