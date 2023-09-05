@@ -12,6 +12,7 @@ const startTheBot = () => {
      command.addGitHub(bot, PATH);
      command.allTeleUsers(bot, PATH);
      command.allGitUsers(bot, PATH);
+     command.all(bot);
      bot.launch();
      return;
 }

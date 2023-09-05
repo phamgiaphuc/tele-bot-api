@@ -15,8 +15,12 @@ const allGitUsersCommand = (bot, PATH) => {
           }
           const data = await fs.promises.readFile(PATH, 'utf8');
           usersData = JSON.parse(data);
-          const users = usersData.githubUsers.join(", ")
-          ctx.reply(usersData.githubUsers.length > 0 ? `All GitHub usernames are updated: ${users}` : `No GitHub usernames are updated!`);
+          const users = usersData.githubUsers.join(", ");
+          if (!usersData.githubUsers.length) {
+               ctx.reply('No GitHub usernames are updated!');
+               return;
+          }
+          ctx.reply(`All GitHub usernames are updated: ${users}`);
      });
      return;
 }
