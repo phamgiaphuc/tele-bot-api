@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
      user_id: {
           type: String,
           required: true,
+          unique: true,
           default: () => uuidv4()
      },
      username: {
@@ -12,7 +13,7 @@ const userSchema = new mongoose.Schema({
           required: [true, 'Must provide an username!'],
           trim: true,
           minLength: [1, 'Minimum character is 1!'],
-          maxLength: [50, 'Maximum characters is 50!']
+          maxLength: [50, 'Maximum characters is 50!'],
      },
      user_type: {
           type: String,
@@ -22,6 +23,18 @@ const userSchema = new mongoose.Schema({
           trim: true,
           minLength: [1, 'Minimum character is 1!'],
           maxLength: [50, 'Maximum characters is 50!']
+     },
+     chat_id: {
+          type: String,
+          required: true,
+          trim: true,
+          minLength: [1, 'Minimum character is 1!'],
+          maxLength: [25, 'Maximum characters is 50!']
+     },
+     key: {
+          type: String,
+          required: true,
+          unique: [true, `Already have this ${this.username} in this group ${this.chat_id}`]
      }
 });
 

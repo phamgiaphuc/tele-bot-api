@@ -1,10 +1,10 @@
 const { model } = require('mongoose');
 const usersModel = require('../models/users')
 
-const getAllFromDB = async (chatId) => {
+const getAllGitUsersFromDB = async (chatId) => {
      try {
           const users = await usersModel.find({
-               user_type: "telegram",
+               user_type: "github",
                chat_id: chatId
           });
           return users;
@@ -13,4 +13,4 @@ const getAllFromDB = async (chatId) => {
      }
 }
 
-module.exports = getAllFromDB;
+module.exports = getAllGitUsersFromDB;
