@@ -58,17 +58,18 @@ git clone git@github.com:phamgiaphuc/tele-bot-api.git
 ```
 npm install
 ```
-#### Step 2: Create the Telegram Bot Token
+#### Step 2: Create the Telegram Bot Token and MongoDB url
 - Click this website and follow the instruction on `Register a Bot account` section
-> [Create and Host a Telegram Bot with Node.js on Code Capsules
-](https://codecapsules.io/docs/tutorials/create-nodejs-telegram-bot/#polling-vs-webhooks)
+> [Create and Host a Telegram Bot with Node.js on Code Capsules](https://codecapsules.io/docs/tutorials/create-nodejs-telegram-bot/#polling-vs-webhooks)
+- Click this website and follow the instruction on `Get your cluster’s connection info` section in Connect to a MongoDB Database Using Node.js
+> [Connect to a MongoDB Database Using Node.js](https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb-how-to-get-connected-to-your-database)
 #### Step 3: Create `.env file` and add the environmnet variables
 ```js
 PORT=               // The port -> The default port is 3000
 BOT_TOKEN=          // The bot token after you create the Telegram bot
 BOT_NAME=           // Your bot name
 BOT_USERNAME=       // Your bot username
-MY_CHAT_ID=         // The chat id
+MY_CHAT_ID=[]       // The chat id
 MY_USERNAME=        // Your Telegram username
 MONGODB_USERNAME=   // MongoDB username
 MONGODB_PASSWORD=   // MongoDB password
@@ -82,9 +83,23 @@ npm start
 ### 2. Docker
 #### Step 1: Docker pull this image to your local computer
 ```
-docker pull giaphuc/tele-bot-api
+docker pull giaphuc/tele-bot-api:1.0.0
 ```
-#### Step 1: Docker run this image
+#### Step 2: Create the Telegram Bot Token and MongoDB url
+- Click this website and follow the instruction on `Register a Bot account` section
+> [Create and Host a Telegram Bot with Node.js on Code Capsules](https://codecapsules.io/docs/tutorials/create-nodejs-telegram-bot/#polling-vs-webhooks)
+- Click this website and follow the instruction on `Get your cluster’s connection info` section in Connect to a MongoDB Database Using Node.js
+> [Connect to a MongoDB Database Using Node.js](https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb-how-to-get-connected-to-your-database)
+#### Step 3: Add environment variables and docker run this image
 ```
-docker run -it --name "TelegramBot" giaphuc/tele-bot-api
+docker run -it -e PORT='port' \
+-e BOT_TOKEN='token' \
+-e BOT_NAME='name' \
+-e BOT_USERNAME='username' \
+-e MY_CHAT_ID='[id]' \
+-e MY_USERNAME='telegram username' \
+-e MONGODB_USERNAME='mongodb username' \
+-e MONGODB_PASSWORD='mongodb password' \
+-e MONGODB_URL='mongodb url' \
+--name 'TelegramBot' giaphuc/tele-bot-api:1.0.0
 ```
