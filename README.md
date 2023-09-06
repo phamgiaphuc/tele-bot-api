@@ -5,7 +5,8 @@
 - [Languages and Tools](#languages-and-tools-in-this-project)
 - [Project Details](#project-details)
 - [Installation Guide](#installation-guide)
-
+  1. [GitHub](#1-github)
+  2. [Docker](#2-docker)
 ---
 ## Brief Description
 - This is a telegram bot project with several commands. 
@@ -13,7 +14,7 @@
 - Project's author: Pham Gia Phuc - Acus
 - Personal profile: [MyProfile](https://github.com/phamgiaphuc)
 
-## Languages and Tools in this project:
+## Languages and Tools in this project
 1. [JavaScript](https://en.wikipedia.org/wiki/JavaScript): Programming language
 1. [NodeJS](https://nodejs.org/en): JavaScript runtime environment
 2. [ExpressJS](https://expressjs.com/): Web framework
@@ -48,7 +49,12 @@ This project is about Telegram Bot that can be served as an admin bot in a Teleg
 </p>
 
 ## Installation Guide
-#### Step 1: Before executing the project, runs this command to install the following `node_modules` and dependencies in the project
+### 1. GitHub:
+#### Step 1: Git clone this repository to your local computer
+```
+git clone git@github.com:phamgiaphuc/tele-bot-api.git
+```
+#### Step 2: Before executing the project, runs this command to install the following `node_modules` and dependencies in the project
 ```
 npm install
 ```
@@ -73,3 +79,12 @@ MONGODB_URL=        // MongoDB url connection
 npm start
 ```
 
+### 2. Docker
+#### Step 1: Docker pull this image to your local computer
+```
+docker pull giaphuc/tele-bot-api
+```
+#### Step 1: Docker run this image
+```
+docker run -it --name "TelegramBot" giaphuc/tele-bot-api
+```
