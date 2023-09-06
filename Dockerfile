@@ -14,10 +14,10 @@ RUN npm install
 COPY . .
 
 # Copy the .env file to the container
-COPY .env .env
+# COPY .env .env
 
 # Expose the port that your Node.js application uses (if needed)
-EXPOSE 3000
+EXPOSE 8000
 
 # Start the Node.js application
 CMD ["node", "index.js"]
