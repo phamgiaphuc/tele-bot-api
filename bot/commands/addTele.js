@@ -6,7 +6,8 @@ const addTeleCommand = (bot, PATH) => {
      bot.command('addTele', async (ctx) => {
           const { username } = ctx.message.from;
           const { id } = ctx.chat ?? {}
-          if (id !== Number(process.env.MY_CHAT_ID)) {
+          const chat_id = JSON.parse(process.env.MY_CHAT_ID);
+          if (!chat_id.includes(id)) {
                ctx.reply(`Action is not allowed with this id ${id}!`);
                return;
           }
@@ -14,29 +15,21 @@ const addTeleCommand = (bot, PATH) => {
                ctx.reply(`Action is not allowed with this username ${username}!`);
                return;
           }
-          let userMess = ctx.message.text
-          let usersData = { telegramUsers: [] };
-          try {
-               const data = await fs.promises.readFile(PATH, 'utf8');
-               usersData = JSON.parse(data);
-          } catch (error) {
-               console.error('Error reading the file:', error);
-               return;
-          }
-          if (!userMess) {
-               return;
-          }
+          const userMess = ctx.message.text
           const usernames = userMess.split(' ').slice(1);
-          usersData.telegramUsers.push(...usernames);
-          userMess = '';
+          if (usernames.length === 0) {
+               ctx.reply('No Telegram usernames are added!');
+               return;
+          }
           try {
-               const updatedData = JSON.stringify(usersData, null, 2);
-               await fs.promises.writeFile(PATH, updatedData, 'utf8');
-               addTeleToDB(usernames);
-               return;
+               addTeleToDB(usernames, id);
+               if (usernames.length > 1) {
+                    ctx.reply('Add Telegram usernames to database successful!');
+                    return;
+               }
+               ctx.reply('Add Telegram username to database successful!');
           } catch (error) {
-               console.error('Error writing to the file:', error);
-               return;
+               console.log(error);
           }
      });
      return;

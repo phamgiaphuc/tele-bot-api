@@ -3,7 +3,8 @@ const cmdCommand = (bot) => {
      bot.command('cmd', async (ctx) => {
           const { username } = ctx.message.from;
           const { id } = ctx.chat ?? {}
-          if (id !== Number(process.env.MY_CHAT_ID)) {
+          const chat_id = JSON.parse(process.env.MY_CHAT_ID);
+          if (!chat_id.includes(id)) {
                ctx.reply(`Action is not allowed with this id ${id}!`);
                return;
           }

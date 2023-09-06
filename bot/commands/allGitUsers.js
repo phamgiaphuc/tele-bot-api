@@ -1,11 +1,13 @@
 const fs = require('fs');
+const getAllGitUsersFromDB = require('../tasks/allGitUsers');
 
 const allGitUsersCommand = (bot, PATH) => {
      // 7. /allGitUsers : print out all GitHub usernames
      bot.command('allGitUsers', async (ctx) => {
           const { username } = ctx.message.from;
           const { id } = ctx.chat ?? {}
-          if (id !== Number(process.env.MY_CHAT_ID)) {
+          const chat_id = JSON.parse(process.env.MY_CHAT_ID);
+          if (!chat_id.includes(id)) {
                ctx.reply(`Action is not allowed with this id ${id}!`);
                return;
           }
@@ -13,15 +15,21 @@ const allGitUsersCommand = (bot, PATH) => {
                ctx.reply(`Action is not allowed with this username ${username}!`);
                return;
           }
-          const data = await fs.promises.readFile(PATH, 'utf8');
-          usersData = JSON.parse(data);
-          const users = usersData.githubUsers.join(", ");
-          if (!usersData.githubUsers.length) {
-               ctx.reply('No GitHub usernames are updated!');
-               return;
-          }
-          ctx.reply(`All GitHub usernames are updated: ${users}`);
+          getAllGitUsersFromDB(id).then((response) => {
+               replyContent(ctx, response);
+          });
      });
+     return;
+}
+
+const replyContent = (ctx, response) => {
+     const usernames = response.map((member) => member.username);
+     const mentionedUsers = usernames.join(', ');
+     if (!usernames.length) {
+          ctx.reply('No GitHub usernames are updated!');
+          return;
+     }
+     ctx.reply(`All GitHub usernames are updated: ${mentionedUsers}`);
      return;
 }
 

@@ -6,6 +6,7 @@ const PATH = path.join(__dirname, 'data/users.json');
 
 const startTheBot = () => {
      command.start(bot);
+     command.msg(bot);
      command.check(bot);
      command.cmd(bot);
      command.addTele(bot, PATH);
