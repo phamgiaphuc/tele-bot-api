@@ -7,6 +7,7 @@
 - [Installation Guide](#installation-guide)
   1. [GitHub](#1-github)
   2. [Docker](#2-docker)
+  3. [Shell script](#3-shell-script)
 ---
 ## Brief Description
 - This is a telegram bot project with several commands. 
@@ -23,10 +24,11 @@
 4. [Docker](https://www.docker.com/): To dockerize and run on Docker platform
 5. [MongoDB](mongodb.com): Server database
 6. [Postman](https://www.postman.com/product/what-is-postman/): Testing tool
+7. [Bash](https://www.freecodecamp.org/news/bash-scripting-tutorial-linux-shell-script-and-command-line-for-beginners/#:~:text=A%20bash%20script%20is%20a,process%20using%20the%20command%20line.): Command-line execution
 
 <p>
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=js,nodejs,expressjs,docker,mongodb,postman"/>
+    <img src="https://skillicons.dev/icons?i=js,nodejs,expressjs,docker,mongodb,postman,bash"/>
   </a>
 </p>
 
@@ -46,7 +48,7 @@ This project is about Telegram Bot that can be served as an admin bot in a Teleg
 **Bot messages:** 'bot', 'hey there' and 'hey bot'`
 
 <p align="center">
-  <img src="./images/preview.png"
+  <img src="https://drive.google.com/uc?id=1yP6CUbrv_gAkvBkGcymgHdfKJrUPrYzm"
 </p>
 
 ## Installation Guide
@@ -89,18 +91,63 @@ docker pull giaphuc/tele-bot-api:1.0.0
 #### Step 2: Create the Telegram Bot Token and MongoDB url
 - Click this website and follow the instruction on `Register a Bot account` section
 > [Create and Host a Telegram Bot with Node.js on Code Capsules](https://codecapsules.io/docs/tutorials/create-nodejs-telegram-bot/#polling-vs-webhooks)
-- Click this website and follow the instruction on `Get your cluster’s connection info` section in Connect to a MongoDB Database Using Node.js
+- Click this website and follow the instruction on `Get your cluster’s connection info` section
 > [Connect to a MongoDB Database Using Node.js](https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb-how-to-get-connected-to-your-database)
 #### Step 3: Add environment variables and docker run this image
 ```
-docker run -it -e PORT='port' \
--e BOT_TOKEN='token' \
--e BOT_NAME='name' \
--e BOT_USERNAME='username' \
--e MY_CHAT_ID='[id]' \
--e MY_USERNAME='telegram username' \
--e MONGODB_USERNAME='mongodb username' \
--e MONGODB_PASSWORD='mongodb password' \
--e MONGODB_URL='mongodb url' \
---name 'TelegramBot' giaphuc/tele-bot-api:1.0.0
+docker run -it -e PORT="$PORT" \
+-e BOT_TOKEN="$BOT_TOKEN" \
+-e BOT_NAME="$BOT_NAME" \
+-e BOT_USERNAME="$BOT_USERNAME" \
+-e MY_CHAT_ID="$MY_CHAT_ID" \
+-e MY_USERNAME="$MY_USERNAME" \
+-e MONGODB_USERNAME="$MONGODB_USERNAME" \
+-e MONGODB_PASSWORD="$MONGODB_PASSWORD" \
+-e MONGODB_URL="$MONGODB_URL" \
+--name "TelegramBot" giaphuc/tele-bot-api:1.0.0
 ```
+
+### 3. Shell script
+#### Step 1: Create a shell script or use the shell script in this repository and copy the below code to insert into the script
+```sh
+# Name: docker_run.sh
+# !/bin/bash
+
+# Pull the Docker image
+docker pull giaphuc/tele-bot-api:1.0.0
+
+# Set your environment variables
+PORT='your_port'
+BOT_TOKEN='your_bot_token'
+BOT_NAME='your_bot_name'
+BOT_USERNAME='your_bot_username'
+MY_CHAT_ID='your_chat_id'
+MY_USERNAME='your_telegram_username'
+MONGODB_USERNAME='your_mongodb_username'
+MONGODB_PASSWORD='your_mongodb_password'
+MONGODB_URL='your_mongodb_url'
+
+# Run the Docker container
+docker run -it -e PORT="$PORT" \
+-e BOT_TOKEN="$BOT_TOKEN" \
+-e BOT_NAME="$BOT_NAME" \
+-e BOT_USERNAME="$BOT_USERNAME" \
+-e MY_CHAT_ID="$MY_CHAT_ID" \
+-e MY_USERNAME="$MY_USERNAME" \
+-e MONGODB_USERNAME="$MONGODB_USERNAME" \
+-e MONGODB_PASSWORD="$MONGODB_PASSWORD" \
+-e MONGODB_URL="$MONGODB_URL" \
+--name "TelegramBot" giaphuc/tele-bot-api:1.0.0
+```
+> Make sure to replace **'your_port'**, **'your_bot_token'**, **'your_bot_name'**, **'your_bot_username'**, **'your_chat_id'**, **'your_telegram_username'**, **'your_mongodb_username'**, **'your_mongodb_password'**, and **'your_mongodb_url'** with your actual values.
+
+#### Step 2: To run the script, follow these steps
+2.1 Make the script executable by running the following command:
+```sh
+chmod +x docker_run.sh #Your shell file name
+```
+2.2 Run the script using:
+```sh
+./docker_run.sh #Your shell file name
+```
+
