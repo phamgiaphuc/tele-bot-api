@@ -4,6 +4,7 @@
 - [Brief Description](#brief-description)
 - [Languages and Tools](#languages-and-tools-in-this-project)
 - [Project Details](#project-details)
+- [Docker version](#docker-version)
 - [Installation Guide](#installation-guide)
   1. [GitHub](#1-github)
   2. [Docker](#2-docker)
@@ -52,6 +53,11 @@ This project is about Telegram Bot that can be served as an admin bot in a Teleg
   <img src="https://drive.google.com/uc?id=1m1BbEvYUpq2_1n4FdBrp-Gs5cqfuDArb"
 </p>
 
+## Docker version
+| Tag version | Description | Date | Link |
+|-------------|-------------|------|------|
+| 1.0.0 | Add default commands | Sep 7, 2023 | [Click here](https://hub.docker.com/layers/giaphuc/tele-bot-api/1.0.0/images/sha256-be2bdb26675c14db84f37a3bca876201358db475b77c3a2bb6a3db6995c033a0?context=repo) |
+| 2.0.0 | Add [/pdf]() command | Sep 10, 2023 | [Click here](https://hub.docker.com/layers/giaphuc/tele-bot-api/2.0.0/images/sha256-8b75f717868bef28252c83e225a5a2c61f7725d6b8845bf3904a6bedff77891a?context=repo) | 
 ## Installation Guide
 ### 1. GitHub:
 #### Step 1: Git clone this repository to your local computer
