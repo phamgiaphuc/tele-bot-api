@@ -1,11 +1,10 @@
-const fs = require('fs');
 const addGitHubToDB = require('../tasks/addGitHub')
 
-const addGitHubCommand = (bot, PATH) => {
+const addGitHubCommand = (bot) => {
      // 5. /addgithub : add github usernames to json file
      bot.command('addGitHub', async (ctx) => {
           const { username } = ctx.message.from;
-          const { id } = ctx.chat ?? {}
+          const { id } = ctx.chat ?? {};
           const chat_id = JSON.parse(process.env.MY_CHAT_ID);
           if (!chat_id.includes(id)) {
                ctx.reply(`Action is not allowed with this id ${id}!`);

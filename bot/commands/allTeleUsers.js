@@ -1,11 +1,10 @@
-const fs = require('fs');
 const all = require('../tasks/all');
 
-const allTeleUsersCommand = (bot, PATH) => {
+const allTeleUsersCommand = (bot) => {
      // 6. /allUsers : print out all Telegram usernames
      bot.command('allTeleUsers', async (ctx) => {
           const { username } = ctx.message.from;
-          const { id } = ctx.chat ?? {}
+          const { id } = ctx.chat ?? {};
           const chat_id = JSON.parse(process.env.MY_CHAT_ID);
           if (!chat_id.includes(id)) {
                ctx.reply(`Action is not allowed with this id ${id}!`);

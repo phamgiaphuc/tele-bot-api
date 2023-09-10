@@ -1,6 +1,7 @@
 const all = require('../tasks/all');
 
 const allCommand = (bot) => {
+     // 8. /all: mention all people in the group chat
      bot.command('all', (ctx) => {
           const { id } = ctx.chat ?? {}
           const chat_id = JSON.parse(process.env.MY_CHAT_ID);

@@ -1,11 +1,10 @@
-const fs = require('fs');
 const addTeleToDB = require('../tasks/addTele')
 
-const addTeleCommand = (bot, PATH) => {
+const addTeleCommand = (bot) => {
      // 4. /add : add telegram usernames to json file
      bot.command('addTele', async (ctx) => {
           const { username } = ctx.message.from;
-          const { id } = ctx.chat ?? {}
+          const { id } = ctx.chat ?? {};
           const chat_id = JSON.parse(process.env.MY_CHAT_ID);
           if (!chat_id.includes(id)) {
                ctx.reply(`Action is not allowed with this id ${id}!`);

@@ -16,6 +16,7 @@ MONGODB_PASSWORD='your_mongodb_password'
 MONGODB_URL='your_mongodb_url'
 
 # Run the Docker container
+# Remember to change the host path before running the image
 docker run -it -e PORT="$PORT" \
 -e BOT_TOKEN="$BOT_TOKEN" \
 -e BOT_NAME="$BOT_NAME" \
@@ -25,4 +26,5 @@ docker run -it -e PORT="$PORT" \
 -e MONGODB_USERNAME="$MONGODB_USERNAME" \
 -e MONGODB_PASSWORD="$MONGODB_PASSWORD" \
 -e MONGODB_URL="$MONGODB_URL" \
+-v /path/to/host/directory:/root/Desktop \
 --name "TelegramBot" giaphuc/tele-bot-api:1.0.0
