@@ -44,11 +44,12 @@ This project is about Telegram Bot that can be served as an admin bot in a Teleg
 6. [/allUsers]() : print out all Telegram usernames
 7. [/allGitUsers]() : print out all GitHub usernames
 8. [/all](): mention all people in the group chat
+9. [/pdf](): download a PDF file of group data
 
 **Bot messages:** 'bot', 'hey there' and 'hey bot'`
 
 <p align="center">
-  <img src="https://drive.google.com/uc?id=1yP6CUbrv_gAkvBkGcymgHdfKJrUPrYzm"
+  <img src="https://drive.google.com/uc?id=1m1BbEvYUpq2_1n4FdBrp-Gs5cqfuDArb"
 </p>
 
 ## Installation Guide
@@ -104,9 +105,10 @@ docker run -it -e PORT="$PORT" \
 -e MONGODB_USERNAME="$MONGODB_USERNAME" \
 -e MONGODB_PASSWORD="$MONGODB_PASSWORD" \
 -e MONGODB_URL="$MONGODB_URL" \
+-v /path/to/host/directory:/root/Desktop \
 --name "TelegramBot" giaphuc/tele-bot-api:1.0.0
 ```
-
+> Remember to change the **host path** before running the image
 ### 3. Shell script
 #### Step 1: Create a shell script or use the shell script in this repository and copy the below code to insert into the script
 ```sh
@@ -128,6 +130,7 @@ MONGODB_PASSWORD='your_mongodb_password'
 MONGODB_URL='your_mongodb_url'
 
 # Run the Docker container
+# Remember to change the host path before running the image
 docker run -it -e PORT="$PORT" \
 -e BOT_TOKEN="$BOT_TOKEN" \
 -e BOT_NAME="$BOT_NAME" \
@@ -137,9 +140,10 @@ docker run -it -e PORT="$PORT" \
 -e MONGODB_USERNAME="$MONGODB_USERNAME" \
 -e MONGODB_PASSWORD="$MONGODB_PASSWORD" \
 -e MONGODB_URL="$MONGODB_URL" \
+-v /path/to/host/directory:/root/Desktop \
 --name "TelegramBot" giaphuc/tele-bot-api:1.0.0
 ```
-> Make sure to replace **'your_port'**, **'your_bot_token'**, **'your_bot_name'**, **'your_bot_username'**, **'your_chat_id'**, **'your_telegram_username'**, **'your_mongodb_username'**, **'your_mongodb_password'**, and **'your_mongodb_url'** with your actual values.
+> Make sure to replace **'your_port'**, **'your_bot_token'**, **'your_bot_name'**, **'your_bot_username'**, **'your_chat_id'**, **'your_telegram_username'**, **'your_mongodb_username'**, **'your_mongodb_password'**, **'your_mongodb_url'** and **host path** with your actual values.
 
 #### Step 2: To run the script, follow these steps
 2.1 Make the script executable by running the following command:

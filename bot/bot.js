@@ -14,6 +14,8 @@ const startTheBot = () => {
      command.allTeleUsers(bot, PATH);
      command.allGitUsers(bot, PATH);
      command.all(bot);
+     command.pdf(bot);
+     // command.querry(bot)
      bot.launch();
      return;
 }

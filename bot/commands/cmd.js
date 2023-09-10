@@ -2,7 +2,7 @@ const cmdCommand = (bot) => {
      // 3. /cmd : show the commands
      bot.command('cmd', async (ctx) => {
           const { username } = ctx.message.from;
-          const { id } = ctx.chat ?? {}
+          const { id } = ctx.chat ?? {};
           const chat_id = JSON.parse(process.env.MY_CHAT_ID);
           if (!chat_id.includes(id)) {
                ctx.reply(`Action is not allowed with this id ${id}!`);
@@ -25,6 +25,7 @@ Bot commands:
 6. /allTeleUsers : print out all Telegram usernames
 7. /allGitUsers : print out all GitHub usernames
 8. /all: mention all people in the group chat
+9. /pdf : download a PDF file of group data
                
 Bot messages: 'bot', 'hey there' and 'hey bot'`});
      });

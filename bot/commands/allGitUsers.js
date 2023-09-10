@@ -1,11 +1,10 @@
-const fs = require('fs');
 const getAllGitUsersFromDB = require('../tasks/allGitUsers');
 
-const allGitUsersCommand = (bot, PATH) => {
+const allGitUsersCommand = (bot) => {
      // 7. /allGitUsers : print out all GitHub usernames
      bot.command('allGitUsers', async (ctx) => {
           const { username } = ctx.message.from;
-          const { id } = ctx.chat ?? {}
+          const { id } = ctx.chat ?? {};
           const chat_id = JSON.parse(process.env.MY_CHAT_ID);
           if (!chat_id.includes(id)) {
                ctx.reply(`Action is not allowed with this id ${id}!`);
