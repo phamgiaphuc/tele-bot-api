@@ -40,10 +40,10 @@ This project is about Telegram Bot that can be served as an admin bot in a Teleg
 1. [/start]() : 'Hi there ✋, please type /cmd to see the commands!'
 2. [/check]() : check if the bot is listening
 3. [/cmd]() : show the commands
-4. [/add]() : add telegram usernames to database
-5. [/addgithub]() : add github usernames to database
-6. [/allUsers]() : print out all Telegram usernames
-7. [/allGitUsers]() : print out all GitHub usernames
+4. [/add]() : add telegram member's username to database
+5. [/addgithub]() :add github member's username to database
+6. [/allTeleMembers]() : print out all Telegram usernames
+7. [/allGitMembers]() : print out all GitHub usernames
 8. [/all](): mention all people in the group chat
 9. [/pdf](): download a PDF file of group data
 
