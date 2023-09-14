@@ -44,6 +44,7 @@ const MemberInfo = () => {
                     <th scope='col' className='px-6 py-4'>User type</th>
                     <th scope='col' className='px-6 py-4'>Group ID</th>
                     <th scope='col' className='px-6 py-4'>Created time</th>
+                    <th scope='col' className='px-6 py-4'>Updated time</th>
                     <th scope='col' className='px-6 py-4'>User ID</th>
                   </tr>
                 </thead>
@@ -53,6 +54,7 @@ const MemberInfo = () => {
                       <td className='px-6 py-4'>{member.user_type}</td>
                       <td className='px-6 py-4'>{member.group_id}</td>
                       <td className='px-6 py-4'>{member.created_time}</td>
+                      <td className='px-6 py-4'>{member.updated_time}</td>
                       <td className='px-6 py-4'>{member.user_id}</td>
                     </tr>
                 </tbody>

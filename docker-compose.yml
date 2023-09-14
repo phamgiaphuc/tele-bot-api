@@ -14,14 +14,14 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - /path/to/host/directory:/root/Desktop
+      - /Users/macbook/Desktop:/root/Desktop
     environment:
-      - PORT='your_port'
-      - BOT_TOKEN='your_bot_token'
-      - BOT_NAME='your_bot_name'
-      - BOT_USERNAME='your_bot_username'
-      - MY_CHAT_ID='your_chat_id'
-      - MY_USERNAME='your_telegram_username'
-      - MONGODB_USERNAME='your_mongodb_username'
-      - MONGODB_PASSWORD='your_mongodb_password'
-      - MONGODB_URL='your_mongodb_url'
+      - PORT=8000
+      - BOT_TOKEN=6348010120:AAH4yR6g6_gMTj1SvcGXEd1Q3abYRwmh3lo
+      - BOT_NAME=PGP_BOT
+      - BOT_USERNAME=pgp_vn_bot
+      - MY_CHAT_ID=[6404344086]
+      - MY_USERNAME=acus_vn
+      - MONGODB_USERNAME=acuscodinghcm
+      - MONGODB_PASSWORD=PefAfOZa9GAI2fHe
+      - MONGODB_URL=mongodb+srv://acuscodinghcm:PefAfOZa9GAI2fHe@cluster0.al2pya7.mongodb.net/telegrambot?retryWrites=true&w=majority

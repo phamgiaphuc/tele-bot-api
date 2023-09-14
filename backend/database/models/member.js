@@ -35,6 +35,10 @@ const memberSchema = new mongoose.Schema({
           type: String,
           require: true,
      },
+     updated_time: {
+          type: String,
+          require: true
+     },
      key: {
           type: String,
           required: true,
