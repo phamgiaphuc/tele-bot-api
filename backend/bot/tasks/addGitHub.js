@@ -9,6 +9,7 @@ const addGitHubToDB = async (usernames, chatId) => {
                     user_type: 'github',
                     group_id: chatId,
                     created_time: date(),
+                    updated_time: date(),
                     key: `${name}#github#${chatId}`
                });
           }

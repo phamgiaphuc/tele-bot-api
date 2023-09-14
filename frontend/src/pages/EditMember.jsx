@@ -35,6 +35,17 @@ const EditMember = () => {
         console.log(error);
       });
   }, [])
+
+  const formatDate = () => {
+    const date = new Date();
+    const second = date.getSeconds();
+    const minute = date.getMinutes();
+    const hour = date.getHours();
+    const day = date.getDate();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+    return `${hour}:${minute}:${second} ${day}/${month}/${year}`;
+}
   
   const handleEditMember = () => {
     const data = {
@@ -43,6 +54,7 @@ const EditMember = () => {
       user_type: user_type,
       group_id: group_id,
       created_time: created_time,
+      updated_time: formatDate(),
       key: `${username}#${user_type}#${group_id}`
     };
     setLoading(true);

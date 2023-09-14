@@ -4,17 +4,18 @@ const date = require('./date');
 const addTeleToDB = async (usernames, chatId) => {
      try {
           for (let name of usernames) {
-               await usersModel.create({
+               result = await usersModel.create({
                     username: name,
                     user_type: 'telegram',
                     group_id: chatId,
                     created_time: date(),
+                    updated_time: date(),
                     key: `${name}#telegram#${chatId}`
                });
           }
           console.log('Add Telegram usernames to MongoDB successful!');
      } catch (error) {
-          console.log(error)
+          console.log(error);
      };
      return;
 }
