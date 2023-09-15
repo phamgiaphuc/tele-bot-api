@@ -46,8 +46,8 @@ This project is about Telegram Bot named @pgp_vn_bot that can be served as an ad
 1. [/start]() : 'Hi there ✋, please type /cmd to see the commands!'
 2. [/check]() : check if the bot is listening
 3. [/cmd]() : show the commands
-4. [/add]() : add telegram member's username to database
-5. [/addgithub]() :add github member's username to database
+4. [/addTele]() : add telegram member's username to database
+5. [/addGitHub]() :add github member's username to database
 6. [/allTeleMembers]() : print out all Telegram usernames
 7. [/allGitMembers]() : print out all GitHub usernames
 8. [/all](): mention all people in the group chat
