@@ -2,7 +2,7 @@ const all = require('../tasks/all');
 
 const allTeleMembersCommand = (bot) => {
      // 6. /allUsers : print out all Telegram usernames
-     bot.command('allTeleUsers', async (ctx) => {
+     bot.command('allTeleMembers', async (ctx) => {
           const { username } = ctx.message.from;
           const { id } = ctx.chat ?? {};
           const chat_id = JSON.parse(process.env.MY_CHAT_ID);

@@ -2,7 +2,7 @@ const getAllGitUsersFromDB = require('../tasks/allGitMembers');
 
 const allGitMembersCommand = (bot) => {
      // 7. /allGitUsers : print out all GitHub usernames
-     bot.command('allGitUsers', async (ctx) => {
+     bot.command('allGitMembers', async (ctx) => {
           const { username } = ctx.message.from;
           const { id } = ctx.chat ?? {};
           const chat_id = JSON.parse(process.env.MY_CHAT_ID);
