@@ -66,8 +66,8 @@ This project is about Telegram Bot named @pgp_vn_bot that can be served as an ad
 ## Docker version
 | Tag version | Description | Date | Link |
 |-------------|-------------|------|------|
-| 1.0.0-backend | Backend side | Sep 12, 2023 | [Click here](https://hub.docker.com/layers/giaphuc/tele-bot-api/1.0.0-backend/images/sha256-88adac8dfba0b3296d5babfa359285b185401c384380fb9ae5776304238a3c5e?context=repo) |
-| 1.0.0-frontend | Frontend side | Sep 12, 2023 | [Click here](https://hub.docker.com/layers/giaphuc/tele-bot-api/1.0.0-frontend/images/sha256-1d9e7dd170e56c978c648922970d17ce0c4b0c11f79b5a56e5eb236feb9732e1?context=repo) | 
+| 1.0.0-backend | Backend side | Sep 12, 2023 | [Click here](https://hub.docker.com/layers/giaphuc/tele-bot-api/1.0.0-backend/images/sha256-eda0ebdff05d04948aaa292da074dea3cd89f21628b2aec84b5ede56d8b23e94?context=repo) |
+| 1.0.0-frontend | Frontend side | Sep 12, 2023 | [Click here](https://hub.docker.com/layers/giaphuc/tele-bot-api/1.0.0-frontend/images/sha256-bb770fcc8e099c939ad534d975437463ca2f6d4a7122a1c3c9e44230055934fd?context=repo) | 
 
 ## Installation Guide
 ### 1. GitHub:
