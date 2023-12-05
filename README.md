@@ -64,10 +64,11 @@ This project is about Telegram Bot named @pgp_vn_bot that can be served as an ad
 - For frontend: http://localhost:8080 or http://localhost:8080/api/v1/member
 
 ## Docker version
-| Tag version | Description | Date | Link |
-|-------------|-------------|------|------|
-| 1.0.0-backend | Backend side | Sep 12, 2023 | [Click here](https://hub.docker.com/layers/giaphuc/tele-bot-api/1.0.0-backend/images/sha256-eda0ebdff05d04948aaa292da074dea3cd89f21628b2aec84b5ede56d8b23e94?context=repo) |
-| 1.0.0-frontend | Frontend side | Sep 12, 2023 | [Click here](https://hub.docker.com/layers/giaphuc/tele-bot-api/1.0.0-frontend/images/sha256-bb770fcc8e099c939ad534d975437463ca2f6d4a7122a1c3c9e44230055934fd?context=repo) | 
+| Tag version | Description | OS | Architecture | Date | Link |
+|-------------|-------------|----|--------------|------|------|
+| 1.0.0-backend | Backend side | Linux | amd64 | Sep 12, 2023 | [Click here](https://hub.docker.com/layers/giaphuc/tele-bot-api/1.0.0-backend/images/sha256-eda0ebdff05d04948aaa292da074dea3cd89f21628b2aec84b5ede56d8b23e94?context=repo) |
+| 1.0.1-backend | Backend side | Linux | arm64, amd64 | Sep 12, 2023 | [Click here](https://hub.docker.com/layers/giaphuc/tele-bot-api/1.0.1-backend/images/sha256-445663855a95c7d32e8195967d5e7cb83edb13ee8659e47e848d5913ea405bc0?context=repo) | 
+| 1.0.0-frontend | Frontend side | Linux | amd64 | Sep 12, 2023 | [Click here](https://hub.docker.com/layers/giaphuc/tele-bot-api/1.0.0-frontend/images/sha256-bb770fcc8e099c939ad534d975437463ca2f6d4a7122a1c3c9e44230055934fd?context=repo) | 
 
 ## Installation Guide
 ### 1. GitHub:
@@ -118,7 +119,7 @@ npm run dev
 ### A. Backend
 #### Step 1: Docker pull this image to your local computer
 ```
-docker pull giaphuc/tele-bot-api:1.0.0-backend
+docker pull giaphuc/tele-bot-api:1.0.1-backend
 ```
 #### Step 2: Create the Telegram Bot Token and MongoDB url
 - Click this website and follow the instruction on `Register a Bot account` section
@@ -137,7 +138,7 @@ docker run -it -p 8000:8000 -e PORT="$PORT" \
 -e MONGODB_PASSWORD="$MONGODB_PASSWORD" \
 -e MONGODB_URL="$MONGODB_URL" \
 -v /path/to/host/directory:/root/Desktop \
---name "tele-bot-api-be" giaphuc/tele-bot-api:1.0.0-backend
+--name "tele-bot-api-be" giaphuc/tele-bot-api:1.0.1-backend
 ```
 > Remember to change the **host path** before running the image
 #### Step 4: Backend routes
@@ -151,12 +152,12 @@ docker run -it -p 8000:8000 -e PORT="$PORT" \
 ### B. Frontend
 #### Step 1: Docker pull this image to your local computer
 ```
-docker pull giaphuc/tele-bot-api:1.0.0-frontend
+docker pull giaphuc/tele-bot-api:1.0.1-frontend
 ```
 #### Step 2: Docker run this image
 ```
 docker run -it -p 8000:8000 \
---name "tele-bot-api-fe" giaphuc/tele-bot-api:1.0.0-frontend
+--name "tele-bot-api-fe" giaphuc/tele-bot-api:1.0.1-frontend
 ```
 > Remember to change the **host path** before running the image
 #### Step 3: Frontend routes
@@ -178,7 +179,7 @@ services:
 
   backend:
     container_name: tele-bot-api-backend
-    image: giaphuc/tele-bot-api:1.0.0-backend
+    image: giaphuc/tele-bot-api:1.0.1-backend
     ports:
       - "8000:8000"
     volumes:
@@ -220,7 +221,7 @@ docker-compose up
 # !/bin/bash
 
 # Pull the Docker image
-docker pull giaphuc/tele-bot-api:1.0.0-backend
+docker pull giaphuc/tele-bot-api:1.0.1-backend
 
 # Set your environment variables
 PORT='your_port'
@@ -245,7 +246,7 @@ docker run -it -p 8000:8000 -e PORT="$PORT" \
 -e MONGODB_PASSWORD="$MONGODB_PASSWORD" \
 -e MONGODB_URL="$MONGODB_URL" \
 -v /path/to/host/directory:/root/Desktop \
---name "TelegramBot" giaphuc/tele-bot-api:1.0.0-backend
+--name "TelegramBot" giaphuc/tele-bot-api:1.0.1-backend
 ```
 > Make sure to replace **'your_port'**, **'your_bot_token'**, **'your_bot_name'**, **'your_bot_username'**, **'your_chat_id'**, **'your_telegram_username'**, **'your_mongodb_username'**, **'your_mongodb_password'**, **'your_mongodb_url'** and **host path** with your actual values.
 
